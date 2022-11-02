@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Students</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container my-2" align="center">
+<h3>Student List</h3>
+<table style="width:80%" border="1" class = "table table-striped table-responsive-md">
+<thead>
+<tr>
+	<th>Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Year</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    
+</tr>
+</thead>
+<tbody>
+<tr th:each="currentStudent: ${student}" >
+	<td th:text="${currentStudent.id}" /></td>
+	<td th:text="${currentStudent.firstName}" /></td>
+	<td th:text="${currentStudent.lastName}" /></td>
+	<td th:text="${currentStudent.year}" /></td>
+	<td><a th:href="@{/edit/{id}(id=${currentStudent.id})}" class="btn btn-primary">Edit</a></td>
+	<td><a th:href="@{/delete/{id}(id=${currentStudent.id})}" class="btn btn-danger">Delete</a></td>
+	</tr>
+</tbody>
+</table>
+</div>
+<a href="../inputStudent">Add a new Student</a>
+</body>
+</html>
