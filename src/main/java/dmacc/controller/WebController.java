@@ -34,8 +34,12 @@ public class WebController {
 	
 	@PostMapping("/inputStudent")
 	public String addNewStudent(@ModelAttribute Student s, Model model) {
+		if (s.getFirstName() == "" || s.getLastName() == "" || s.getYear() == 0) {
+			return "input";
+		} else {
 		repo.save(s);
 		return viewAllStudents(model);
+		}
 	}
 	
 	@GetMapping("/edit/{id}")

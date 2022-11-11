@@ -1,5 +1,6 @@
 package dmacc.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Student {
 	@Id
@@ -18,6 +20,4 @@ public class Student {
 	 private String lastName;
 	 private int year;
 	 
-	 
-
 }
